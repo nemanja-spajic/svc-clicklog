@@ -47,6 +47,7 @@ public class ClickLogControllerIT {
           + "  and 2 records inside the database for the campaign ID"
           + " when fetchClicks"
           + " then return 200"
+          + "  and campaign ID is 1"
           + "  and expected number of clicks is 2")
   void fetchClicks_twoCampaigns_then200() {
     saveClickLog(CAMPAIGN_ID);
@@ -62,6 +63,7 @@ public class ClickLogControllerIT {
             .as(ClickLogResponseDto.class);
 
     assertThat(result.getNumberOfClicks()).isEqualTo(2);
+    assertThat(result.getCampaignId()).isEqualTo(CAMPAIGN_ID);
   }
 
   @Test
@@ -72,6 +74,7 @@ public class ClickLogControllerIT {
           + "  and 2 records are in between the startAt and endAt"
           + " when fetchClicks"
           + " then return 200"
+          + "  and campaign ID is 1"
           + "  and expected number of clicks is 2")
   void fetchClicks_twoCampaignsInBetween_then200() {
     final var now = LocalDateTime.now();
@@ -92,6 +95,7 @@ public class ClickLogControllerIT {
             .as(ClickLogResponseDto.class);
 
     assertThat(result.getNumberOfClicks()).isEqualTo(2);
+    assertThat(result.getCampaignId()).isEqualTo(CAMPAIGN_ID);
   }
 
   @Test

@@ -7,7 +7,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/svc_clicklog?reWriteBatchedInserts=true
     username: svc_clicklog
-    password: ZTaAVDKZEcXD6wQ
+    password: ZTaAVDKZEcXD6wQ # in the real (production) world, this would be an environment variable imported from some vault or other secret store
   jpa:
     hibernate:
       ddl-auto: none

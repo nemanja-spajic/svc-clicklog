@@ -4,7 +4,7 @@ import pytz
 from datetime import datetime
 
 # Open the CSV file
-with open('output.csv', 'r') as csvfile:
+with open('click_log.csv', 'r') as csvfile:
     reader = csv.DictReader(csvfile)
 
     # Connect to the PostgreSQL database
@@ -14,7 +14,6 @@ with open('output.csv', 'r') as csvfile:
     # Iterate through each row in the CSV
     for row in reader:
         # Convert Unix timestamp to datetime
-        print(row)
         unix_timestamp = int(row['timestamp'])
         timestamp = datetime.fromtimestamp(unix_timestamp)
         utc_timezone = pytz.timezone('UTC')

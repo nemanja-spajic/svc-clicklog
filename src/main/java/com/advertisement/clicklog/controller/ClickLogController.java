@@ -56,7 +56,7 @@ public class ClickLogController {
     final var clicksNumber =
         clickLogService.getClicks(campaignId, parseDate(startDateStr), parseDate(endDateStr));
 
-    return ResponseEntity.ok(clickLogResponseDtoConverter.convert(clicksNumber));
+    return ResponseEntity.ok(clickLogResponseDtoConverter.convert(clicksNumber, campaignId));
   }
 
   private LocalDateTime parseDate(String dateStr) {

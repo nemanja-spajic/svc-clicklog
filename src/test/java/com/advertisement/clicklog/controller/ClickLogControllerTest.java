@@ -11,8 +11,6 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 
 import java.time.format.DateTimeFormatter;
@@ -47,6 +45,7 @@ public class ClickLogControllerTest {
           + "  and service returns 12 clicks"
           + " when fetchClicks"
           + " then return 200"
+          + "  and campaignId should be 1"
           + "  number of clicks should be 12")
   void fetchClicks_givenCampaign_then200() {
     when(clickLogService.getClicks(1, null, null)).thenReturn(12);
@@ -55,6 +54,7 @@ public class ClickLogControllerTest {
 
     assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
     assertThat(response.getBody().getNumberOfClicks()).isEqualTo(12);
+    assertThat(response.getBody().getCampaignId()).isEqualTo(1);
   }
 
   @Test
@@ -65,7 +65,8 @@ public class ClickLogControllerTest {
           + "  and service returns 12 clicks"
           + " when fetchClicks"
           + " then return 200"
-          + "  number of clicks should be 12")
+          + "  and campaignId should be 1"
+          + "  and number of clicks should be 12")
   void fetchClicks_givenCampaignWithStartAtAndEndAt_then200() {
     when(clickLogService.getClicks(eq(1), any(), any())).thenReturn(12);
 
@@ -73,6 +74,7 @@ public class ClickLogControllerTest {
 
     assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
     assertThat(response.getBody().getNumberOfClicks()).isEqualTo(12);
+    assertThat(response.getBody().getCampaignId()).isEqualTo(1);
   }
 
   @ParameterizedTest
