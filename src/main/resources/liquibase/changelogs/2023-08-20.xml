@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.10.xsd">
+
+    <changeSet id="create_table_advertisement_logs" author="Nemanja Spajic (nemanja.spajicc@gmail.com)">
+        <preConditions>
+            <not>
+                <tableExists tableName="advertisement_logs"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="advertisement_logs">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="pk_advertisement_logs"/>
+            </column>
+            <column name="timestamp" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="campaign" type="INT"/>
+            <column name="banner" type="INT"/>
+            <column name="content_unit" type="INT"/>
+            <column name="network" type="INT"/>
+            <column name="browser" type="INT"/>
+            <column name="operating_system" type="INT"/>
+            <column name="country" type="INT"/>
+            <column name="state" type="INT"/>
+            <column name="city" type="INT"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

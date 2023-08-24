@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: svc-clicklog
+  datasource:
+    url: jdbc:postgresql://localhost:5432/svc_clicklog?reWriteBatchedInserts=true
+    username: svc_clicklog
+    password: ZTaAVDKZEcXD6wQ
+  jpa:
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+    properties:
+      hibernate:
+        generate_statistics: false
+        jdbc:
+          batch_size: 25
+        order_inserts: true
+        order_updates: true
+  liquibase:
+    change-log: classpath:liquibase/master.xml
