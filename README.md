@@ -1,16 +1,16 @@
 # svc-clicklog
 
-Welcome to the svc-clicklog Readme! This document provides an overview of the service and its API endpoint for fetching
-the number of clicks for a campaign. The service is designed to provide flexibility in fetching click statistics based
-on time intervals.
+Welcome to the `svc-clicklog` Readme! This document provides an overview of the service and its API endpoint for
+fetching the number of clicks for a campaign. The service is designed to provide flexibility in fetching click
+statistics based on time intervals.
 
 ## API Endpoint
 
-The svc-clicklog exposes the following API endpoint:
+The `svc-clicklog` exposes the following API endpoint:
 
 ### Fetch Clicks for Campaign
 
-**Endpoint: ```/api/campaign/clicks```**
+**Endpoint: ```/api/campaign/{campaignId}/clicks```**
 
 **HTTP Method**: ``GET``
 
@@ -30,25 +30,25 @@ This endpoint allows you to retrieve the number of clicks for a campaign, with t
 1. Fetch all clicks:
 
 ```
-GET /api/campaign/clicks
+GET /api/campaign/{campaignId}/clicks
 ```
 
 2. Fetch clicks from a specific start time till the end:
 
 ```
-GET /api/campaign/clicks?startAt=2023-08-01 00:00:00 
+GET /api/campaign/{campaignId}/clicks?startAt=2023-08-01 00:00:00 
 ```
 
 3. Fetch clicks from the beginning till a specific end time:
 
 ```
-GET /api/campaign/clicks?endAt=2023-08-15 23:59:59 
+GET /api/campaign/{campaignId}/clicks?endAt=2023-08-15 23:59:59 
 ```
 
 4. Fetch clicks within a specific time range:
 
 ```
-GET /api/campaign/clicks?startAt=2023-08-01 00:00:00&endAt=2023-08-15 23:59:59 
+GET /api/campaign/{campaignId}/clicks?startAt=2023-08-01 00:00:00&endAt=2023-08-15 23:59:59 
 ```
 
 #### Response

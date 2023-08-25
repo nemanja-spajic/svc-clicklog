@@ -39,11 +39,11 @@ public class ClickLogController {
   }
 
   @GetMapping(
-      value = "/campaign/{campaign_id}/clicks",
+      value = "/campaign/{campaignId}/clicks",
       produces = {"application/json"})
   @ResponseStatus(value = OK)
   public ResponseEntity<ClickLogResponseDto> fetchClicks(
-      @PathVariable("campaign_id") final int campaignId,
+      @PathVariable("campaignId") final int campaignId,
       @RequestParam(value = "startDate", required = false) String startDateStr,
       @RequestParam(value = "endDate", required = false) String endDateStr) {
     logger.info(
